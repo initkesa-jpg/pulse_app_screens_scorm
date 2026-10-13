@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ПУЛЬС · Интерфейсы приложения — макеты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#07090F;--bg-1:#0D111A;--glass:rgba(255,255,255,.055);--line:rgba(255,255,255,.10);
+  --pulse:#FF4D6A;--volt:#3DFFC8;--ion:#7A5CFF;
+  --grad-pulse:linear-gradient(135deg,#FF4D6A,#FF8A5C);
+  --grad-volt:linear-gradient(135deg,#3DFFC8,#4DC9FF);
+  --grad-ion:linear-gradient(135deg,#7A5CFF,#C86AFF);
+  --ink:#F2F5FA;--dim:rgba(242,245,250,.62);--faint:rgba(242,245,250,.38);
+  --fn:'Unbounded',sans-serif;--ft:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg-0);color:var(--ink);font:400 16px/1.5 var(--ft);padding:48px 24px 90px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font:900 30px var(--fn)} h1 b{background:var(--grad-pulse);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);margin-top:8px;max-width:640px}
+.row{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap;justify-content:center}
+
+/* телефонная рамка */
+.phone{width:250px;flex:none}
+.phone .dev{border-radius:34px;background:#05070B;padding:10px;border:1px solid #232A38;
+  box-shadow:0 24px 60px rgba(0,0,0,.65)}
+.phone .cap{margin-top:14px;text-align:center}
+.phone .cap b{font:800 14px var(--ft)} .phone .cap span{display:block;font:500 12px var(--ft);color:var(--faint)}
+.scrn{border-radius:26px;background:radial-gradient(140% 90% at 20% 0%,#0F1522 0%,#07090F 55%);
+  height:520px;padding:16px 14px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:11px}
+.notch{width:70px;height:16px;border-radius:99px;background:#000;margin:0 auto 2px}
+.stat{display:flex;justify-content:space-between;font:600 9.5px var(--ft);color:var(--faint);padding:0 4px}
+.hdr{font:900 17px var(--fn);display:flex;align-items:center;gap:10px}
+.hdr .tt{flex:1}
+.hdr small{display:block;font:600 10px var(--ft);color:var(--faint);letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+.ava{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid var(--pulse);flex:none}
+.foodimg{width:100%;height:132px;object-fit:cover;border-radius:16px;display:block;border:1px solid var(--line)}
+.c{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:12px}
+.knum{font:900 22px/1 var(--fn);white-space:nowrap}
+.klbl{font:600 9.5px var(--ft);color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.g2{display:flex;gap:10px} .g2>*{flex:1}
+.tab{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;
+  padding:10px 8px 14px;background:rgba(7,9,15,.85);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.tab i{width:22px;height:22px;display:block;opacity:.45}
+.tab i.on{opacity:1}
+.aimsg{background:rgba(122,92,255,.13);border:1px solid rgba(122,92,255,.4);border-radius:14px 14px 14px 4px;padding:10px 12px;font:600 12px/1.45 var(--ft)}
+.aimsg .who{font:800 9px var(--fn);letter-spacing:.18em;color:#B9A6FF;margin-bottom:4px}
+.mymsg{background:rgba(255,255,255,.09);border-radius:14px 14px 4px 14px;padding:9px 12px;font:600 12px var(--ft);align-self:flex-end;max-width:82%}
+.quick{display:flex;gap:6px;flex-wrap:wrap}
+.quick span{border:1px solid rgba(122,92,255,.5);color:#B9A6FF;border-radius:99px;padding:5px 10px;font:700 10.5px var(--ft)}
+.btn{border:0;border-radius:99px;padding:11px 16px;font:800 12.5px var(--ft);cursor:pointer;text-align:center}
+.btn.hot{background:var(--grad-pulse);color:#14060A;box-shadow:0 0 20px rgba(255,77,106,.35)}
+.price{display:flex;align-items:baseline;gap:6px}
+.price .p{font:900 30px var(--fn);background:var(--grad-volt);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tick{font:600 11.5px var(--ft);color:var(--dim);display:flex;gap:8px;align-items:center;margin-top:7px}
+.tick b{color:var(--volt)}
+svg{display:block}
+.sp{width:1em;height:1em;display:inline-block;vertical-align:-.12em;fill:currentColor}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><b>ПУЛЬС</b> · интерфейсы приложения</h1>
+  <p class="sub">Пять ключевых экранов-компаньонов на дизайн-системе «Пульс»: дашборд дня, диалог с агентом, агент-диетолог, детали сна, подписка Pulse+.</p>
+
+  <div class="row">
+
+    <!-- 1. Сегодня -->
+    <div class="phone"><div class="dev"><div class="scrn">
+      <div class="notch"></div>
+      <div class="stat"><span>07:42</span><span>●●● ⌁ 94%</span></div>
+      <div class="hdr"><span class="tt">Сегодня<small>чт · 9 июля</small></span><img class="ava" src="img/avatar.jpg" alt="Мария"></div>
+      <div class="c" style="display:flex;gap:14px;align-items:center">
+        <svg width="64" height="64" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="26" stroke="rgba(255,255,255,.08)" stroke-width="7" fill="none"/>
+          <circle cx="32" cy="32" r="26" stroke="url(#gv)" stroke-width="7" fill="none" stroke-linecap="round"
+                  stroke-dasharray="163" stroke-dashoffset="31" transform="rotate(-90 32 32)"/>
+          <text x="32" y="38" text-anchor="middle" fill="#F2F5FA" style="font:900 16px Unbounded">81</text>
+        </svg>
+        <div><div style="font:800 14.5px var(--ft)">Восстановление</div>
+        <div class="klbl">готов к нагрузке · HRV 64 мс</div></div>
+      </div>
+      <div class="g2">
+        <div class="c"><div class="knum" style="color:var(--pulse)">62</div><div class="klbl">пульс покоя</div></div>
+        <div class="c"><div class="knum" style="color:var(--volt)">8 214</div><div class="klbl">шагов</div></div>
+      </div>
+      <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ</div>Окно 18:00 свободно — ставлю интервалы? Восстановление позволяет.</div>
+      <div class="tab">
+        <i class="on"><svg viewBox="0 0 24 24"><path d="M3 12l9-8 9 8v9H3z" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><path d="M2.5 12h4l2.2-5.4 3 10.8 2.5-8 1.6 2.6h5.7" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#F2F5FA" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+      </div>
+    </div></div><div class="cap"><b>Сегодня</b><span>дашборд: восстановление, живые метрики, подсказка</span></div></div>
+
+    <!-- 2. Агент-чат -->
+    <div class="phone"><div class="dev"><div class="scrn">
+      <div class="notch"></div>
+      <div class="stat"><span>07:44</span><span>●●● ⌁ 94%</span></div>
+      <div class="hdr"><span class="tt">Агент<small><svg class="sp"><use href="#sp4"/></svg> проактивный режим · вкл</small></span><img class="ava" src="img/avatar.jpg" alt="Мария"></div>
+      <div style="display:flex;flex-direction:column;gap:9px;overflow:hidden">
+        <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ · 07:15</div>Ты спал 7:36 — на 40 мин меньше нормы. Глубокий сон в порядке. Сегодня советую лёгкий бег вместо силовой.</div>
+        <div class="mymsg">А когда лучше по календарю?</div>
+        <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ</div>Смотрю календарь: встречи до 17:30. Окно 18:00–19:00 свободно, погода 21°. Ставлю пробежку 40 мин?</div>
+        <div class="mymsg">Да, и напомни за полчаса</div>
+        <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ</div>Готово: бег 18:00, напомню в 17:30 и подготовлю разминку ✓</div>
+      </div>
+      <div class="quick" style="margin-top:auto;padding-bottom:52px"><span>Как мой сон?</span><span>План на неделю</span><span>Что с HRV?</span></div>
+      <div class="tab">
+        <i><svg viewBox="0 0 24 24"><path d="M3 12l9-8 9 8v9H3z" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><path d="M2.5 12h4l2.2-5.4 3 10.8 2.5-8 1.6 2.6h5.7" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i class="on"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z" fill="none" stroke="#B9A6FF" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#F2F5FA" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+      </div>
+    </div></div><div class="cap"><b>Диалог с агентом</b><span>контекст: сон + календарь + погода → действие</span></div></div>
+
+    <!-- 3. Диетолог -->
+    <div class="phone"><div class="dev"><div class="scrn">
+      <div class="notch"></div>
+      <div class="stat"><span>19:24</span><span>●●● ⌁ 71%</span></div>
+      <div class="hdr"><span class="tt">Диетолог<small><svg class="sp"><use href="#sp4"/></svg> фото → разбор тарелки</small></span><img class="ava" src="img/avatar.jpg" alt="Мария"></div>
+      <img class="foodimg" src="img/food_bowl.jpg" alt="Фото ужина: боул с лососем">
+      <div class="mymsg" style="display:flex;gap:8px;align-items:center"><svg class="sp" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;width:1.1em;height:1.1em"><path d="M3.5 8h3.2l1.8-2.2h7L17.3 8h3.2v11h-17z"/><circle cx="12" cy="13" r="3.4"/></svg> мой ужин</div>
+      <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ-ДИЕТОЛОГ</div>Лосось, киноа, авокадо, гранат ≈ <b style="color:var(--volt)">620 ккал</b> · Б 38 / Ж 28 / У 46. Отличный ужин после интервалов — белок закроет восстановление.</div>
+      <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ-ДИЕТОЛОГ</div>До дневной нормы — 400 мл воды. Напомню через час.</div>
+      <div class="quick" style="margin-top:auto;padding-bottom:52px"><span>Что на завтрак?</span><span>Белок за неделю</span></div>
+      <div class="tab">
+        <i><svg viewBox="0 0 24 24"><path d="M3 12l9-8 9 8v9H3z" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><path d="M2.5 12h4l2.2-5.4 3 10.8 2.5-8 1.6 2.6h5.7" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+        <i class="on"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z" fill="none" stroke="#B9A6FF" stroke-width="1.8"/></svg></i>
+        <i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#F2F5FA" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" fill="none" stroke="#F2F5FA" stroke-width="1.8"/></svg></i>
+      </div>
+    </div></div><div class="cap"><b>Агент-диетолог</b><span>сфотографируй еду — получи КБЖУ и совет</span></div></div>
+
+    <!-- 4. Сон -->
+    <div class="phone"><div class="dev"><div class="scrn">
+      <div class="notch"></div>
+      <div class="stat"><span>07:45</span><span>●●● ⌁ 93%</span></div>
+      <div class="hdr"><span class="tt">Сон<small>ночь на 9 июля · 23:48 – 07:24</small></span><img class="ava" src="img/avatar.jpg" alt="Мария"></div>
+      <div class="c" style="text-align:center">
+        <div class="knum" style="font-size:44px;background:var(--grad-ion);-webkit-background-clip:text;background-clip:text;color:transparent">86</div>
+        <div class="klbl">качество сна · лучше, чем у 72% недели</div>
+      </div>
+      <div class="c">
+        <svg width="100%" height="74" viewBox="0 0 200 74">
+          <text x="0" y="10" fill="rgba(242,245,250,.38)" style="font:600 7px Manrope">БОДРСТВ.</text>
+          <text x="0" y="30" fill="rgba(242,245,250,.38)" style="font:600 7px Manrope">ЛЁГКИЙ</text>
+          <text x="0" y="50" fill="rgba(242,245,250,.38)" style="font:600 7px Manrope">REM</text>
+          <text x="0" y="70" fill="rgba(242,245,250,.38)" style="font:600 7px Manrope">ГЛУБОКИЙ</text>
+          <!-- гипнограмма: каждая фаза своим цветом, толстые горизонтали, тонкие связки -->
+          <g stroke-linecap="round">
+            <line x1="42" y1="6" x2="50" y2="6" stroke="#FF8A5C" stroke-width="6"/>
+            <line x1="50" y1="6" x2="50" y2="26" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="50" y1="26" x2="66" y2="26" stroke="#4DC9FF" stroke-width="6"/>
+            <line x1="66" y1="26" x2="66" y2="66" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="66" y1="66" x2="88" y2="66" stroke="#7A5CFF" stroke-width="6"/>
+            <line x1="88" y1="66" x2="88" y2="26" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="88" y1="26" x2="98" y2="26" stroke="#4DC9FF" stroke-width="6"/>
+            <line x1="98" y1="26" x2="98" y2="46" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="98" y1="46" x2="112" y2="46" stroke="#3DFFC8" stroke-width="6"/>
+            <line x1="112" y1="46" x2="112" y2="66" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="112" y1="66" x2="130" y2="66" stroke="#7A5CFF" stroke-width="6"/>
+            <line x1="130" y1="66" x2="130" y2="26" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="130" y1="26" x2="140" y2="26" stroke="#4DC9FF" stroke-width="6"/>
+            <line x1="140" y1="26" x2="140" y2="6" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="140" y1="6" x2="146" y2="6" stroke="#FF8A5C" stroke-width="6"/>
+            <line x1="146" y1="6" x2="146" y2="46" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="146" y1="46" x2="166" y2="46" stroke="#3DFFC8" stroke-width="6"/>
+            <line x1="166" y1="46" x2="166" y2="26" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="166" y1="26" x2="176" y2="26" stroke="#4DC9FF" stroke-width="6"/>
+            <line x1="176" y1="26" x2="176" y2="46" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="176" y1="46" x2="186" y2="46" stroke="#3DFFC8" stroke-width="6"/>
+            <line x1="186" y1="46" x2="186" y2="6" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+            <line x1="186" y1="6" x2="194" y2="6" stroke="#FF8A5C" stroke-width="6"/>
+          </g>
+        </svg>
+        <div class="klbl" style="margin-top:6px"><span style="color:#7A5CFF">● глубокий 1:52</span> · <span style="color:#3DFFC8">● REM 1:44</span> · <span style="color:#4DC9FF">● лёгкий 4:00</span></div>
+      </div>
+      <div class="g2">
+        <div class="c"><div class="knum" style="font-size:19px;color:#B9A6FF">7:36</div><div class="klbl">длительность</div></div>
+        <div class="c"><div class="knum" style="font-size:15px;color:var(--volt)">12 мин</div><div class="klbl">засыпание</div></div>
+      </div>
+      <div class="aimsg"><div class="who"><svg class="sp"><use href="#sp4"/></svg> АГЕНТ</div>Ложись сегодня до 23:30 — вернём 40 минут долга сна.</div>
+    </div></div><div class="cap"><b>Детали сна</b><span>оценка, фазы, вывод агента — а не просто график</span></div></div>
+
+    <!-- 4. Подписка -->
+    <div class="phone"><div class="dev"><div class="scrn">
+      <div class="notch"></div>
+      <div class="stat"><span>07:46</span><span>●●● ⌁ 93%</span></div>
+      <div class="hdr" style="background:var(--grad-volt);-webkit-background-clip:text;background-clip:text;color:transparent">Pulse+<small style="color:var(--faint)">умный агент на максимум</small></div>
+      <div class="c">
+        <div class="price"><span class="p">399 ₽</span><span style="color:var(--faint);font:600 12px var(--ft)">/мес</span></div>
+        <div class="tick"><b>✓</b> проактивные подсказки агента</div>
+        <div class="tick"><b>✓</b> голосовые запросы без телефона</div>
+        <div class="tick"><b>✓</b> интеграции: календарь · тренировки</div>
+        <div class="tick"><b>✓</b> персональные планы восстановления</div>
+      </div>
+      <div class="c" style="opacity:.75">
+        <div class="price"><span class="p" style="font-size:22px;background:none;color:var(--ink)">Базовый</span><span style="color:var(--faint);font:600 12px var(--ft)">0 ₽</span></div>
+        <div class="tick">— трекинг сна и пульса</div>
+        <div class="tick">— ответы агента по запросу</div>
+      </div>
+      <button class="btn hot">Попробовать 14 дней бесплатно</button>
+      <div class="klbl" style="text-align:center">отмена в один тап · без карты</div>
+    </div></div><div class="cap"><b>Подписка Pulse+</b><span>монетизация: агент — драйвер LTV</span></div></div>
+
+  </div>
+</div>
+
+<svg width="0" height="0"><defs><symbol id="sp4" viewBox="0 0 24 24"><path d="M12 2l2.1 7.9L22 12l-7.9 2.1L12 22l-2.1-7.9L2 12l7.9-2.1z"/></symbol>
+  <linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF4D6A"/><stop offset="1" stop-color="#FF8A5C"/></linearGradient>
+  <linearGradient id="gv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3DFFC8"/><stop offset="1" stop-color="#4DC9FF"/></linearGradient>
+  <linearGradient id="gi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A5CFF"/><stop offset="1" stop-color="#C86AFF"/></linearGradient>
+</defs></svg>
+</body>
+</html>
